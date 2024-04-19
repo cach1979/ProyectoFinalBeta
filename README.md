@@ -4,7 +4,7 @@ Descripciín basisca de su Proyecto de POO ...
 
 # Autores
 
-- Autor 1
+- Santiago Carvajal
 - Autor 2
 
 # Herramientas

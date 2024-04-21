@@ -1,5 +1,5 @@
 package co.edu.uniquindio.poo;
 
-public class UsuarioDueño {
+public class usuarioDueno {
     
 }

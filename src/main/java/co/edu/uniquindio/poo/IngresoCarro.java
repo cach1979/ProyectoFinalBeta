@@ -30,14 +30,14 @@ public class IngresoCarro {
                 Boolean numerosV = numeros.matches("\\d");
                 
                 if(letrasV && numerosV) {
-                    System.out.println("");
+                    System.out.print("Se agrego el carro correctamente");
                 } else {
-                    System.out.print("Placa mal ingresada");
-                    return parqueaderoCupos();
+                    throw new IllegalAccessException("Placa mal ingresada");
                 }
             }
-        } catch (Exception e) {
-            // TODO: handle exception
+        } catch (IllegalAccessException e) {
+            System.err.println(e.getMessage());
+            return parqueaderoCupos();
         }
         return carrosInicial;
     }

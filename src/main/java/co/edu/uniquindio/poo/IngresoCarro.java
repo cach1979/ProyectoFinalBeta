@@ -17,31 +17,28 @@ public class IngresoCarro {
         }
     }
 
-    public Object parqueaderoCupos() {
+    public void parqueaderoCupos() {
         try {
             this.scanner = new Scanner(System.in);
             System.out.println("Ingrese placa del carro");
             String placa = scanner.nextLine();
 
             if(placa.length() == 6) {
-                String letras = placa.substring(0,3);
+                String letras = placa.substring(0,3).toUpperCase();
                 String numeros = placa.substring(3);
+
                 Boolean letrasV = letras.matches("[a-zA-Z]+");
-                Boolean numerosV = numeros.matches("\\d");
+                Boolean numerosV = numeros.matches("\\d{3}");
                 
                 if(letrasV && numerosV) {
-                    System.out.print("Se agrego el carro correctamente");
+                    System.out.println("Se agrego el carro correctamente");
                 } else {
                     throw new IllegalAccessException("Placa mal ingresada");
                 }
             }
         } catch (IllegalAccessException e) {
             System.err.println(e.getMessage());
-            return parqueaderoCupos();
+            parqueaderoCupos();
         }
-        return carrosInicial;
     }
 }
-
-
-// hola

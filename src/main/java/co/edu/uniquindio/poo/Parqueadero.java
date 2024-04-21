@@ -6,7 +6,9 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Parqueadero {
+    static Scanner scanner = new Scanner(System.in);
     static IngresoCarro carro = new IngresoCarro();
+    static IngresoMoto moto = new IngresoMoto();
     public static String[][] carrosInicial = new String[8][8]; 
     public static String[][] motosInicial = new String[10][10]; 
 
@@ -14,13 +16,12 @@ public class Parqueadero {
     public static int contadorMotos = 0; 
 
 public static void main(String[] args) {
-    Scanner scanner = new Scanner(System.in);
     String menuP;
         menuP = "<<< SELECIONA TU OPCION >>> \n";
         menuP += "1. Registrar entrada de vehículo \n";
         menuP += "2. Registrar salida de vehículo \n";
         menuP += "3. Mostrar estado actual del parqueadero \n";
-        menuP += "4. Salir del programa \n";
+        menuP += "4. Salir del programa";
     int opcP = 0;
     boolean salir = false;
     String input;
@@ -41,10 +42,13 @@ public static void main(String[] args) {
 
                 System.out.print(menuV);
                 opcV = scanner.nextInt();
+                scanner.nextLine();
                     if (opcV == 1) {
                         carro.parqueaderoCupos();
+                    } else if(opcV == 2) {
+                        moto.parqueaderoCupos();
                     } else {
-                        System.out.print("este espacio esta vacio");
+                        System.out.println("Opcion no valida");
                     }
                 break;
 
@@ -65,14 +69,11 @@ public static void main(String[] args) {
                 System.out.println("Opción no válida. Por favor, intente de nuevo.");
                 break;
             }
-        } catch (NumberFormatException e) {
-            System.out.println("Error: Ingrese un número válido.");
-        } catch (InputMismatchException e) {
+        }  catch (InputMismatchException e) {
             System.out.println("Error: Entrada inválida. Por favor, ingrese un número entero.");
                 scanner.nextLine();
         }
-    } while (!salir);
-    scanner.close();
+    } while (opcP!=4);
 }
 
     public static void inicializarParqueadero() {

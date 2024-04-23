@@ -41,4 +41,7 @@ public class IngresoCarro {
             parqueaderoCupos();
         }
     }
+    public int getContadorCarros() {
+        return contadorCarros;
+    }
 }
